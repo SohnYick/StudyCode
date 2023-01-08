@@ -1,0 +1,370 @@
+/* reset
+*********************************************************/
+* {
+    margin:0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-style: normal;
+}
+a {
+    color:#515151;
+    text-decoration: none;
+}
+
+/* global
+*********************************************************/
+body {
+    font:14px/1.5 Helvetica,Arial,sans-serif;
+    text-align: center;
+}
+
+/* components
+*********************************************************/
+[class~="box"]{
+    display: block;
+    overflow: hidden;
+}
+
+/* 横条盒子 */
+.banner-box {
+    overflow:hidden;
+}
+/* .banner-box img {
+} */
+
+/* 区块盒子 */
+.section-box{
+    margin-bottom: 50px;
+}
+.section-box:first-child{
+    padding: 45px 0;
+    background-color: #fff;
+}
+.section-box:after,.section-box:before {
+    display: block;
+    clear: both;
+    content: " ";
+}
+.section-title {
+    font-size: 30px;
+    margin-bottom: 10px;   
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 媒体盒子 */
+[class|="media-box"]{
+    position: relative;
+    float: left;    
+    width: 303px;
+    height: 375px;   
+    padding: 28px 0 20px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+.media-box + .media-box{
+    margin-left: 9px;
+}
+.media-img{
+    height: 230px;
+}
+.media-title{
+    color: #333;
+    font-size: 16px;
+}
+.media-desc{
+    color: #999;
+    font-size: 14px; 
+}
+.media-price {
+    font-size: 22px;
+    margin-left: 8px;
+    color: #c00;
+}
+.media-price i {
+    font-size: 14px;
+}
+.media-price em {
+    font-size: 16px;
+}
+.media-price s {
+    font-size: 14px;
+    color: #666;
+    margin-left: 8px;
+}
+.media-sign {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: block;
+    width: 60px;    
+    height: 60px;
+    font-size: 16px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    background-image: linear-gradient(120deg,#ff3149,#ff64a6);
+    border-radius: 50%;
+}
+.media-box--large {
+    width: 615px;
+    height: 610px;
+}
+.media-box--large + .media-box--large {
+    margin-left: 10px;
+}
+.media-box--large .media-img { 
+    height: 460px;
+}
+
+.media-box--img {
+    padding: 0;
+    margin-right: 10px;
+}
+.media-box--img .media-title{
+    font-size: 21px;
+    font-weight: 700;
+    color: #fff;
+}
+.media-box--img .media-desc{
+    font-size: 14px;
+    color: #fff;
+}
+.media-box--img img {
+    height: 100%;
+    width: 100%;
+}
+.media-box--img .media-info {
+    display: block;
+    margin-top: -100px;
+}
+.media-box--img .media-price
+,.media-box--img .media-price i{
+    font-size: 21px;
+    color: #ebce6b;
+    font-weight: 700;
+}
+
+/* structure
+*********************************************************/
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+.clearfix::after,
+.clearfix::before{
+    display: block;
+    clear: both;
+    content: " ";
+}
+/* 头部 */
+.top-h {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+.top-h h1{
+    float:left;
+    padding: 22px 0;
+    color: #008cff;
+}
+.top-h .cart,
+.top-h .user,
+.top-h .serach,
+.top-h nav{
+    float: right;
+}
+.top-h nav a {
+    display: block;
+    float: left;
+    padding: 31px 20px 30px;
+    color: #fff;
+}
+.top-h nav a:hover {
+    color: #008cff;
+}
+.top-h .serach{
+    position: relative;
+    margin: 25px 5px 0 10px;
+}
+.top-h .serach input {
+    padding: 10px 12px;
+    width: 170px;
+    height: 30px;
+    border: 1px solid #999;
+    font-size: 12px;
+    border-radius: 20px;
+    outline: 0;
+}
+
+.top-h .serach a {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #999;
+}
+
+.top-h .user,
+.top-h .cart{
+    position: relative;
+    display: block;
+    padding: 26px 0 0 8px;
+}
+.top-h .user img,
+.top-h .cart img  {
+    width: 29px;
+    height: 29px;
+}
+.dropdown {
+    position: absolute;
+    right: 0;
+    width: 98px;
+    background-color: #fff;
+}
+.dropdown a {
+    display: block;
+    padding: 10px;
+    font-size: 12px;
+    color: #515151;
+}
+.dropdown a:hover {
+    color: #008cff;
+}
+
+/* 顶部横幅 */
+.banner-top {
+    height: 670px;
+}
+
+/* 主体内容 */
+main {
+    background-color: #f4f4f4;
+    overflow:hidden;
+}
+.section-box:first-child .media-box{
+    /* 让第一个section-box的高度自动，实现垂直居中。 */
+    height: auto;
+}
+.section-box:first-child .media-title {
+    font-size: 20px;
+}
+.section-box:first-child .media-img{
+    height: 130px;
+}
+.section-box:first-child .media-box{
+    margin:0;
+    width: 25%;
+}
+
+.phone .banner {
+    background: url("../img/banner-phone.jpg");
+    width: 100%;
+}
+.phone .media-box--large .media-title{font-size: 28px;}
+.phone .media-box--large .media-desc{
+    color: #333;
+    font-size: 18px;
+}
+
+.voice .media-box .media-title {
+    margin-top: 15px;
+}
+
+.flyme [class|="media"]{
+    padding: 0;
+    height: 245px;
+}
+.flyme [class|="media-box"]{
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.flyme .media-box--large{
+    width: 615px;
+}
+.flyme .media-box .media-img {
+    height: 190px;
+    width: 100%;
+}
+
+.flyme .media-box:nth-child(5){
+    margin-left: 0;
+}
+.flyme .media-box .media-title {
+    line-height: 55px;
+    font-size: 16px;
+    color: #515151;
+}
+
+/* footer */
+footer{
+    padding: 28px 0 20px;
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    background-color: #fff;
+}
+footer a {
+    font-size: 12px;
+    color: #999;
+}
+.ft-top {
+    margin-top: 40px;
+}
+.onlive {
+    float: right;
+    margin-top: -10px;
+    text-align: right;
+}
+.onlive .tel{
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 40px;
+    color: #008cff;
+}
+.onlive .onlive-btn {
+    display: inline-block;
+    height: 30px;
+    padding: 0 16px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #008cff;
+    border-radius: 20px;
+}
+.service a {
+    display: block;
+    float: left;
+    text-align: center;
+    width: 12%;
+}
+.service p {margin-top: 10px;}
+.service img {
+    width: 40%;
+}
+.ft-hr {
+    height: 1px;
+    margin: 20px auto 28px;
+    background-color: #eee;
+}
+.ft-info {
+    margin-right: -10px;
+}
+.ft-info a {
+    display: inline-block;
+    height: 18px;
+    padding: 0 15px 0 12px;
+    border-right: 1px solid #d6d6d6;
+    line-height: 18px;
+}
+.ft-info a:last-child{border: none;}
+.ft-over {padding-top: 8px;}
+.ft-over a{margin:0 3px;}
+.ft-over a:first-child{margin-left: 20px;}
+.ft-info a:hover,
+.ft-over a:hover{
+    color: #008cff;
+}
+

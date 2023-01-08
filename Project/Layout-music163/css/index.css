@@ -1,0 +1,110 @@
+/* 
+    头部布局
+*/
+header {
+    background-color:#242424;
+    border-bottom:1px solid #000;
+    font-size: 1rem;
+}
+header .container > * {
+    display: inline-block;
+}
+.h-nav > a{
+    display: inline-block;
+    color:white;
+    padding: 1.2em 1em;
+}
+header .logo {
+    font-size:inherit;
+}    
+
+
+nav {
+    background-color: #C20C0C;
+    border-bottom:1px solid #a40011;
+}
+
+
+/* 
+    主体部分
+*/
+main {
+    background-color: #fff;
+}
+/* 左侧 */
+.content {
+    width: 75%;
+    border-right: 1px solid grey;
+}
+.content  section{
+    padding: 2rem 2em 3em;
+}
+.content-header{
+    /* border: 1px solid red; */
+    border-bottom:2px solid #C20C0C;
+    padding:.8em 0;
+}
+.content-header > *{
+    display: inline-block;
+}
+.content-h2 {
+    font-size: 1.6em;
+    color: #333;
+}
+.content .more{
+    line-height: 3em;
+    float: right;
+}
+.content .more a{
+    color: #666;
+}
+.content-nav a{
+    color:#666;
+    padding: 0 .8em;
+}
+.content-nav a + a{
+    border-left: .5px #ccc solid;
+}
+.content-nav a:hover,.content .more a:hover{
+    color:#a40011;
+}
+/* 左侧-第一部分 */
+.content ul {
+    margin: 2em 0;
+}
+.content ul li {
+    float: left;
+    width: 25%;
+    margin-bottom: 4em;
+}
+.content ul li > a{
+    font-size: 1.2em;
+    color:#000;
+}
+.content .cover {
+    /* border: 1px solid red; */
+    position: relative;
+}
+.cover img {
+    height: 145px;
+    width: 120px;
+}
+.cover .bottom {
+    position:absolute;
+    left: 0;
+    bottom: 0;
+}
+/* 左侧-第二部分 */
+/* 左侧-第三部分 */
+
+/* 右侧 */
+aside {
+    width: 25%;
+}
+/* 
+    工具
+*/
+.active {
+    background-color: #000;
+    color:#fff;
+}
