@@ -5,6 +5,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from alien import Alien
 
 class AlienInvasion:
     
@@ -26,8 +27,14 @@ class AlienInvasion:
 
         # 飞船
         self.ship = Ship(self)
-        # 飞船的子弹
+        # 存储所有飞船子弹的编组 
         self.bullets = pygame.sprite.Group()
+
+        # 存储外星人舰队的编组
+        self.aliens = pygame.sprite.Group()
+        # 创建外星人舰队
+        self._create_fleet()
+        
 
     def run_game(self):
         """ 游戏的主循环 """
@@ -100,6 +107,9 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
 
+        # 绘制外星人
+        self.aliens.draw(self.screen)
+
         # 让最近绘制的屏幕可见
         pygame.display.flip()
 
@@ -112,6 +122,39 @@ class AlienInvasion:
             if bullet.rect.bottom < 0:
                 self.bullets.remove(bullet)
 
+    def _create_fleet(self):
+        """ 创建外星人舰队 """
+        alien = Alien(self)
+        self.aliens.add(alien)
+       
+        # 外星人的宽高
+        alien_width = alien.rect.width
+        alien_height = alien.rect.height
+
+        # 行和列的可用空间
+        available_space_x = self.settings.screen_width - (2 * alien_width)
+        available_space_y = self.settings.screen_height - (3 * alien_height) - self.ship.rect.height
+        # 一行可以有多少个外星人
+        alien_rows_number = available_space_x // (2 * alien_width)
+        # 一共可以有多少行
+        alien_cols_number = available_space_y // (2 * alien_height)
+
+        # 创建外星人舰队
+        for row_number in range(alien_cols_number):
+            for col_number in range(alien_rows_number):
+                self._create_alien(row_number,col_number)
+
+    def _create_alien(self,row_number,col_number):
+        """ 创建一个外星人"""
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        # 设置位置
+        alien.x = alien_width + 2 * alien_width * col_number
+        alien.y = alien.rect.height + 2 * alien.rect.height * row_number
+        alien.rect.x = alien.x
+        alien.rect.y = alien.y
+        # 加入外星舰队编组
+        self.aliens.add(alien)
 
 if __name__ == "__main__":
 
