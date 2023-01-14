@@ -49,6 +49,9 @@ class AlienInvasion:
             # 子弹更新
             self._update_bullets()
 
+            # 外星人更新
+            self._update_aliens()
+
             # 屏幕更新：重绘
             self._update_screen()
             
@@ -122,6 +125,10 @@ class AlienInvasion:
             if bullet.rect.bottom < 0:
                 self.bullets.remove(bullet)
 
+    def _update_aliens(self):
+        self._check_fleet_edges()
+        self.aliens.update()
+
     def _create_fleet(self):
         """ 创建外星人舰队 """
         alien = Alien(self)
@@ -155,6 +162,20 @@ class AlienInvasion:
         alien.rect.y = alien.y
         # 加入外星舰队编组
         self.aliens.add(alien)
+
+    def _check_fleet_edges(self):
+        """ 有外星人达到边缘时，采取相应的措施 """
+        for alien in self.aliens.sprites():
+            if alien._check_edge():
+                self._check_fleet_direction()
+                break
+
+    def _check_fleet_direction(self):
+        """ 将整群外星人下移，并改变它们的方向 """
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.settings.alien_drop_speed
+        self.settings.fleet_direction *= -1
+
 
 if __name__ == "__main__":
 
