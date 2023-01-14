@@ -10,6 +10,7 @@ class Settings:
 
         # 飞船相关配置
         self.ship_speed = 1
+        self.ship_limit = 3 # 玩家的飞船数量
         
         # 子弹相关配置
         self.bullet_speed = 1
@@ -19,7 +20,7 @@ class Settings:
         self.bullets_allowed = 5
 
         # 外星人相关配置
-        self.alien_speed = 1.0
+        self.alien_speed = 1
         self.alien_drop_speed = 10
         # fleet_direction，1表示向右，-1表示向左
         self.fleet_direction = 1
