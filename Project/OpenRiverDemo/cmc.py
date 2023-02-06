@@ -1,10 +1,14 @@
-import time
 from urllib import parse
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
+
+# 获取多少页
+page_number = 2
+# 每页获取多少个货币信息
+coin_number = 5
 
 def init():
     ranking_page_url = "https://coinmarketcap.com/"
@@ -41,7 +45,8 @@ def _get_index_or_socials_urls(browser):
         urls.append(a_url)
     return urls
 def _get_mul_index(browser):
-    return _get_index_or_socials_urls(browser)
+    return _get_index_or_socials
+    _urls(browser)
 def _get_socials(browser):
     return _get_index_or_socials_urls(browser)
 

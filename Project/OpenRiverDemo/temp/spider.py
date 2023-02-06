@@ -1,18 +1,26 @@
+import requests
 import parsel
 
-class CMCSpider:
+class Spider:
     """ 
     此类负责爬取数据。
     默认使用pyquery解析
     """
 
-    def __init__(self,url):
+    def __init__(self,url,rules):
         """
         :param url: 解析的URL地址
+        :param rules: 解析规则集
         """
         self.url = url
+        self.rules = rules
         # 解析的方式：要么JSON，要么DOM
         self.rules_method = self.check_rules()
+
+        # 响应对象
+        self.response = None
+        # 数据列表
+        self.data_list = []
         
     def parse(self):
         """
