@@ -1,4 +1,5 @@
 import requests
+import pyquery 
 
 class BookSpider:
     """ 本类爬取豆瓣读书 """
@@ -18,20 +19,9 @@ class BookSpider:
             "User-Agent" : "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36"
         }
 
-        # 存放从网页中爬取到的数据
-        self.pages = []
-
-    def craw(self):
+    def parse():
         """
-        抓取数据
-        :return: 返回字典数组，数组中每个字典包含网页相关的信息
         """
-        for url in self.urls:
-            self.pages.append({
-                "url" : url,
-                "html" : craw_html(url)
-            })
-        return self.pages
 
 
     def craw_html(self,url):

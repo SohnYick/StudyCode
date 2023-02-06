@@ -12,7 +12,6 @@ if __name__ == "__main__":
     pages = spider.craw()
     for page in pages:
         print(page["url"],len(page["html"]))
-
     end = time.time()
     print(f"用时：{end-start}")
 

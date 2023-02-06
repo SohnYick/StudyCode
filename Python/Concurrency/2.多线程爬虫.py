@@ -1,6 +1,7 @@
 import threading
 import time
 
+from spider import BookSpider
 import requests
 
 
@@ -14,7 +15,7 @@ if __name__ == "__main__":
     threads = []
     for url in bs.urls:
         threads.append(
-            threading.Thread(target=bs.craw,args=(url,))
+            threading.Thread(target=bs.craw_html,args=(url,))
         )
 
     # 线程启动
